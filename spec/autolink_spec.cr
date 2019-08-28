@@ -99,6 +99,15 @@ describe Autolink do
 
     link = HTML.escape(%q(<a href="example">http://example.com</a>))
     auto_link(link).should eq %q(&lt;a href=&quot;example&quot;&gt;<a href="http://example.com">http://example.com</a>&lt;/a&gt;)
+
+    link = HTML.escape(%q(http://example.com and some html<br>))
+    auto_link(link).should eq %q(<a href="http://example.com">http://example.com</a> and some html&lt;br&gt;)
+
+    link = HTML.escape(%q([http://example.com] and some html<br>))
+    auto_link(link).should eq %q([<a href="http://example.com">http://example.com</a>] and some html&lt;br&gt;)
+
+    # link = HTML.escape(%q(<http://example.com> and some html<br>))
+    # auto_link(link).should eq %q(&lt;<a href="http://example.com">http://example.com</a>&gt; and some html&lt;br&gt;)
   end
 
   it "plays well with stdlib markdown" do
