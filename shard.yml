@@ -1,9 +1,9 @@
 name: autolink
-version: 0.1.3
+version: 0.1.4
 
 authors:
   - Hugo Abonizio <hugo_abonizio@hotmail.com>
 
-crystal: 0.31.0
+crystal: ">= 0.31.0, < 2.0.0"
 
 license: MIT
